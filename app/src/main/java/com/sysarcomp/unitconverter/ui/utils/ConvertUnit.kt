@@ -16,8 +16,8 @@ fun ConvertUnit(
     val factorO = konversionFactor.outputFactor
 
 
-    Log.i("patrox", factorI.toString())
-    Log.i("patrox", factorO.toString())
+    Log.i("patrox", "factor i : ${factorI.toString()}")
+    Log.i("patrox", "factor o : ${factorO.toString()}")
 
     val inputValueDouble =
         inputValue.value.toDoubleOrNull() ?: 0.0 // si retorna null , se setea a 0.0
@@ -29,7 +29,7 @@ fun ConvertUnit(
 
         outputValue.value = result.toString()
 
-        Log.i("patrox" , result.toString())
+        Log.i("patrox", result.toString())
     }
 
 

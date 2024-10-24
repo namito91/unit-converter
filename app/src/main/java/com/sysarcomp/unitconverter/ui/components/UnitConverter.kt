@@ -2,10 +2,9 @@ package com.sysarcomp.unitconverter.ui.components
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import com.sysarcomp.unitconverter.ui.utils.KonversionFactor
 
 
 @Composable
@@ -21,11 +20,11 @@ fun UnitConverter(innerPadding: PaddingValues) {
         }
 
     val inputUnit = remember {
-        mutableStateOf("centimeters")
+        mutableStateOf("")
     }
 
-    var outputUnit by remember {
-        mutableStateOf("meters")
+    val outputUnit = remember {
+        mutableStateOf("")
     }
 
     val iExpanded = remember {
@@ -44,7 +43,18 @@ fun UnitConverter(innerPadding: PaddingValues) {
         mutableStateOf(0.01)
     }
 
+    var konversionFactor = KonversionFactor(0.0, 0.0)
 
     // pintamos la pantalla
-    BaseContainer(inputValue, outputValue, iExpanded, oExpanded, inputUnit, conversionFactor,oConversionFactor)
+    BaseContainer(
+        inputValue,
+        outputValue,
+        iExpanded,
+        oExpanded,
+        inputUnit,
+        outputUnit,
+        conversionFactor,
+        oConversionFactor,
+        konversionFactor
+    )
 }
