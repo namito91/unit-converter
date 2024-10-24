@@ -8,6 +8,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import com.sysarcomp.unitconverter.ui.utils.KonversionFactor
 
 
 @Composable
@@ -16,7 +17,8 @@ fun OutputBox(
     outputValue: MutableState<String>,
     oExpanded: MutableState<Boolean>,
     inputUnit: MutableState<String>,
-    conversionFactor: MutableState<Double>
+    conversionFactor: MutableState<Double>,
+    konversionFactor: KonversionFactor
 ) {
 
     // output box
@@ -33,12 +35,13 @@ fun OutputBox(
             )
         }
 
-        DropMenu(
+        OutputDropMenu(
             inputValue,
             outputValue,
             expanded = oExpanded,
             inputUnit = inputUnit,
-            conversionFactor
+            conversionFactor,
+            konversionFactor
         )
     }
 }

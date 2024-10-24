@@ -8,6 +8,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import com.sysarcomp.unitconverter.ui.utils.KonversionFactor
 
 
 @Composable
@@ -16,7 +17,8 @@ fun InputBox(
     outputValue: MutableState<String>,
     iExpanded: MutableState<Boolean>,
     inputUnit: MutableState<String>,
-    conversionFactor: MutableState<Double>
+    conversionFactor: MutableState<Double>,
+    konversionFactor: KonversionFactor
 ) {
 
     // input box
@@ -32,7 +34,14 @@ fun InputBox(
                 contentDescription = "Arrow down"
             )
 
-            DropMenu(inputValue,outputValue, expanded = iExpanded, inputUnit, conversionFactor)
+            DropMenu(
+                inputValue,
+                outputValue,
+                expanded = iExpanded,
+                inputUnit,
+                conversionFactor,
+                konversionFactor
+            )
         }
     }
 }

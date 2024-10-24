@@ -6,7 +6,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.sysarcomp.unitconverter.ui.utils.ConvertUnit
 
 
 @Composable
@@ -47,5 +46,5 @@ fun UnitConverter(innerPadding: PaddingValues) {
 
 
     // pintamos la pantalla
-    BaseContainer(inputValue, outputValue, iExpanded, oExpanded, inputUnit, conversionFactor)
+    BaseContainer(inputValue, outputValue, iExpanded, oExpanded, inputUnit, conversionFactor,oConversionFactor)
 }

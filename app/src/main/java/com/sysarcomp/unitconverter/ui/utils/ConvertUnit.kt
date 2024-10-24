@@ -1,21 +1,36 @@
 package com.sysarcomp.unitconverter.ui.utils
 
+import android.util.Log
+import android.widget.Toast
 import androidx.compose.runtime.MutableState
 import kotlin.math.roundToInt
 
 fun ConvertUnit(
     inputValue: MutableState<String>,
     outputValue: MutableState<String>,
-    conversionFactor: MutableState<Double>,
-    oConversionFactor: MutableState<Double>
-) {
+    konversionFactor: KonversionFactor,
+
+    ) {
+
+    val factorI = konversionFactor.inputFactor
+    val factorO = konversionFactor.outputFactor
+
+
+    Log.i("patrox", factorI.toString())
+    Log.i("patrox", factorO.toString())
 
     val inputValueDouble =
         inputValue.value.toDoubleOrNull() ?: 0.0 // si retorna null , se setea a 0.0
 
-    // formateamos el resultado
-    val result = (((inputValueDouble * conversionFactor.value) * 100).roundToInt()) / 100
+    if (!(factorI.isNaN()) && !(factorO.isNaN()) && inputValueDouble != 0.0) {
 
-    outputValue.value = result.toString()
+        // formateamos el resultado
+        val result = ((((inputValueDouble * factorI) * 100) / factorO).roundToInt()) / 100
+
+        outputValue.value = result.toString()
+
+        Log.i("patrox" , result.toString())
+    }
+
 
 }

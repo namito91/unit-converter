@@ -8,9 +8,8 @@ import androidx.compose.runtime.MutableState
 import com.sysarcomp.unitconverter.ui.utils.ConvertUnit
 import com.sysarcomp.unitconverter.ui.utils.KonversionFactor
 
-
 @Composable
-fun DropMenu(
+fun OutputDropMenu(
     inputValue: MutableState<String>,
     outputValue: MutableState<String>,
     expanded: MutableState<Boolean>,
@@ -35,7 +34,7 @@ fun DropMenu(
 
                 conversionFactor.value = 0.01
 
-                konversionFactor.inputFactor = 0.01
+                konversionFactor.outputFactor = 0.01
 
                 //formatea el input ingresado por el usuario
                 // y lo muestra en el output
@@ -52,7 +51,7 @@ fun DropMenu(
 
                 conversionFactor.value = 1.0
 
-                konversionFactor.inputFactor = 1.0
+                konversionFactor.outputFactor = 1.0
 
                 ConvertUnit(inputValue, outputValue = outputValue, konversionFactor)
             })
@@ -66,7 +65,7 @@ fun DropMenu(
 
                 conversionFactor.value = 0.3048
 
-                konversionFactor.inputFactor = 0.3048
+                konversionFactor.outputFactor = 0.3048
 
                 ConvertUnit(inputValue, outputValue = outputValue, konversionFactor)
             })
@@ -80,7 +79,7 @@ fun DropMenu(
 
                 conversionFactor.value = 0.001
 
-                konversionFactor.inputFactor = 0.001
+                konversionFactor.outputFactor = 0.001
 
                 ConvertUnit(inputValue, outputValue = outputValue, konversionFactor)
             })

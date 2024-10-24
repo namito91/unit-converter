@@ -14,6 +14,8 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.sysarcomp.unitconverter.ui.utils.ConvertUnit
+import com.sysarcomp.unitconverter.ui.utils.KonversionFactor
 
 @Composable
 fun BaseContainer(
@@ -22,8 +24,11 @@ fun BaseContainer(
     iExpanded: MutableState<Boolean>,
     oExpanded: MutableState<Boolean>,
     inputUnit: MutableState<String>,
-    conversionFactor: MutableState<Double>
+    conversionFactor: MutableState<Double>,
+    oConversionFactor: MutableState<Double>
 ) {
+
+    val konversionFactor = KonversionFactor(0.0, 0.0)
 
 
     Column(
@@ -47,14 +52,16 @@ fun BaseContainer(
 
         Row {
 
-            InputBox(inputValue, outputValue, iExpanded = iExpanded, inputUnit, conversionFactor)
+            InputBox(inputValue, outputValue, iExpanded = iExpanded, inputUnit, conversionFactor , konversionFactor)
 
             Spacer(modifier = Modifier.width(16.dp))
 
-            OutputBox(inputValue,outputValue, oExpanded = oExpanded, inputUnit, conversionFactor)
+            OutputBox(inputValue, outputValue, oExpanded = oExpanded, inputUnit, oConversionFactor,konversionFactor)
         }
 
         Spacer(modifier = Modifier.height(16.dp))
+
+      //  ConvertUnit(inputValue, outputValue = outputValue, konversionFactor)
 
         Text("result")
 
